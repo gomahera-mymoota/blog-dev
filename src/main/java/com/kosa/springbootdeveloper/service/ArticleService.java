@@ -2,7 +2,9 @@ package com.kosa.springbootdeveloper.service;
 
 import com.kosa.springbootdeveloper.domain.Article;
 import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
+import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.repository.ArticleRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,15 @@ public class ArticleService {
 
     public void deleteById(Long id) {
         articleRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Article updateById(Long id, ArticleUpdateRequestDto dto) {
+        Article article = articleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+
+        article.update(dto.getTitle(), dto.getContent());
+
+        return article;
     }
 }

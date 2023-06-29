@@ -3,6 +3,7 @@ package com.kosa.springbootdeveloper.controller;
 import com.kosa.springbootdeveloper.domain.Article;
 import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
 import com.kosa.springbootdeveloper.dto.ArticleResponseDto;
+import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -46,5 +47,15 @@ public class ArticleController {
         articleService.deleteById(id);
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticleById(
+            @PathVariable Long id,
+            @RequestBody ArticleUpdateRequestDto dto) {
+        Article updatedArticle = articleService.updateById(id, dto);
+
+        return ResponseEntity.ok()
+                .body(updatedArticle);
     }
 }
