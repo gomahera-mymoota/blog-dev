@@ -7,10 +7,7 @@ import com.kosa.springbootdeveloper.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,19 @@ public class ArticleController {
                 .toList();
         return ResponseEntity.ok()
                 .body(articles);
+    }
+
+    @GetMapping("/api/articles/{id}")
+    public ResponseEntity<ArticleResponseDto> findArticleById(@PathVariable Long id) {
+        Article article = articleService.findById(id);
+        return ResponseEntity.ok()
+                .body(new ArticleResponseDto(article));
+    }
+
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Void> deleteArticleById(@PathVariable Long id) {
+        articleService.deleteById(id);
+        return ResponseEntity.ok()
+                .build();
     }
 }
