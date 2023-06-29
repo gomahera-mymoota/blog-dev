@@ -19,8 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -95,5 +94,28 @@ class ArticleControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].content").value(content))
                 .andExpect(jsonPath("$[0].title").value(title));
+    }
+
+    @DisplayName("블로그 글 조회에 성공한다")
+    @Test
+    public void findArticleById() throws Exception {
+        // given
+        final String url = "/api/articles/{id}";
+        final String title = "title-title";
+        final String content = "test test test";
+
+        Article savedArticle = articleRepository.save(Article.builder()
+                        .title(title)
+                        .content(content)
+                .build());
+
+        // when
+        ResultActions result = mockMvc.perform(get(url, savedArticle.getId()));
+
+        // then
+        result
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content").value(content))
+                .andExpect(jsonPath("$.title").value(title));
     }
 }
