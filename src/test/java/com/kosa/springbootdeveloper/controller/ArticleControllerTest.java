@@ -3,6 +3,7 @@ package com.kosa.springbootdeveloper.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.springbootdeveloper.domain.Article;
 import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
+import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.repository.ArticleRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -139,5 +140,37 @@ class ArticleControllerTest {
         result.andExpect(status().isOk());
         List<Article> articles = articleRepository.findAll();
         assertThat(articles).isEmpty();
+    }
+
+    @DisplayName("블로그 글 하나 수정에 성공한다")
+    @Test
+    public void updateArticleById() throws Exception {
+        // given
+        final String url = "/api/articles/{id}";
+        final String title = "title-title";
+        final String content = "test test test";
+
+        Article savedArticle = articleRepository.save(Article.builder()
+                .title(title)
+                .content(content)
+                .build());
+
+        final String newTitle = "new title";
+        final String newContent = "new new new";
+
+        ArticleUpdateRequestDto dto = new ArticleUpdateRequestDto(newTitle, newContent);
+        // when
+        ResultActions result = mockMvc.perform(put(url, savedArticle.getId())
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(objectMapper.writeValueAsString(dto))
+        );
+
+        // then
+        result.andExpect(status().isOk());
+
+        Article article = articleRepository.findById(savedArticle.getId()).get();
+
+        assertThat(article.getTitle()).isEqualTo(newTitle);
+        assertThat(article.getContent()).isEqualTo(newContent);
     }
 }
