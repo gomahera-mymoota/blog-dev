@@ -44,13 +44,6 @@ public class BlogViewController {
             model.addAttribute("article", new ArticleViewResponseDto());
         } else {
             Article article = articleService.findById(id);
-
-            System.out.println("<<------------------------------");
-            System.out.println(article.getId());
-            System.out.println(article.getTitle());
-            System.out.println(article.getContent());
-            System.out.println("<<------------------------------");
-
             model.addAttribute("article", new ArticleViewResponseDto(article));
         }
 

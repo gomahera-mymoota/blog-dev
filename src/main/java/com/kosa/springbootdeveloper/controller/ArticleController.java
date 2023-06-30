@@ -39,11 +39,6 @@ public class ArticleController {
     @GetMapping("/api/articles/{id}")
     public ResponseEntity<ArticleResponseDto> findArticleById(@PathVariable Long id) {
         Article article = articleService.findById(id);
-        System.out.println("--------------------------------");
-        System.out.println(article.getId());
-        System.out.println(article.getTitle());
-        System.out.println(article.getContent());
-        System.out.println("--------------------------------");
         return ResponseEntity.ok()
                 .body(new ArticleResponseDto(article));
     }
@@ -60,8 +55,6 @@ public class ArticleController {
             @PathVariable Long id,
             @RequestBody ArticleUpdateRequestDto dto) {
         Article updatedArticle = articleService.updateById(id, dto);
-//        System.out.println(dto.getTitle());
-//        System.out.println(dto.getContent());
 
         return ResponseEntity.ok()
                 .body(updatedArticle);
