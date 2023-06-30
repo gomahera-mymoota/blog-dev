@@ -13,7 +13,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user")
-    public String signUp(UserAddRequestDto dto) {
+    public String signup(UserAddRequestDto dto) {
         userService.save(dto);
         return "redirect:/login";
     }
