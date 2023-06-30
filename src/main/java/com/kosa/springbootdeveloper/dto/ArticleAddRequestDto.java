@@ -15,8 +15,6 @@ public class ArticleAddRequestDto {
     private String title;
     private String content;
 
-    private LocalDateTime createdAt;
-
     public Article toEntity() {
         return Article.builder()
                 .title(this.title)
