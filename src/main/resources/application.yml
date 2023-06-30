@@ -14,3 +14,7 @@ spring:
   h2:
     console:
       enabled: true
+
+jwt:
+  issuer: iceman4u@naver.com
+  secret_key: kosa-springboot
