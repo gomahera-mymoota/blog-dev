@@ -19,6 +19,7 @@ public class ArticleViewResponseDto {
         this.id = article.getId();
         this.title = article.getTitle();
         this.content = article.getContent();
+        System.out.println("article.getContent() " + this.content);
         this.createdAt = article.getCreatedAt();
     }
 }

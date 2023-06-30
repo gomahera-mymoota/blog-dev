@@ -3,9 +3,7 @@ package com.kosa.springbootdeveloper.service;
 import com.kosa.springbootdeveloper.domain.User;
 import com.kosa.springbootdeveloper.dto.UserAddRequestDto;
 import com.kosa.springbootdeveloper.repository.UserRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
