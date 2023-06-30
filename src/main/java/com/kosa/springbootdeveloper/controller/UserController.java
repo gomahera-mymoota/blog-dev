@@ -1,0 +1,20 @@
+package com.kosa.springbootdeveloper.controller;
+
+import com.kosa.springbootdeveloper.dto.UserAddRequestDto;
+import com.kosa.springbootdeveloper.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@RequiredArgsConstructor
+@Controller
+public class UserController {
+
+    private final UserService userService;
+
+    @PostMapping("/user")
+    public String signUp(UserAddRequestDto dto) {
+        userService.save(dto);
+        return "redirect:/login";
+    }
+}
