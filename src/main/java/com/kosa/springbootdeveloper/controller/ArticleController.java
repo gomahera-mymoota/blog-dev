@@ -1,16 +1,15 @@
 package com.kosa.springbootdeveloper.controller;
 
 import com.kosa.springbootdeveloper.domain.Article;
-import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
-import com.kosa.springbootdeveloper.dto.ArticleResponseDto;
-import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleAddRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleResponseDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor

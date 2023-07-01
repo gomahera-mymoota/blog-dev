@@ -1,4 +1,4 @@
-package com.kosa.springbootdeveloper.dto;
+package com.kosa.springbootdeveloper.dto.article;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

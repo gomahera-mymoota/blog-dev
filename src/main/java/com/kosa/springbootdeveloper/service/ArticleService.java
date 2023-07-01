@@ -1,8 +1,8 @@
 package com.kosa.springbootdeveloper.service;
 
 import com.kosa.springbootdeveloper.domain.Article;
-import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
-import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleAddRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.repository.ArticleRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

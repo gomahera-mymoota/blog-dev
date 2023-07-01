@@ -1,8 +1,8 @@
 package com.kosa.springbootdeveloper.controller;
 
 import com.kosa.springbootdeveloper.domain.Article;
-import com.kosa.springbootdeveloper.dto.ArticleListViewResponseDto;
-import com.kosa.springbootdeveloper.dto.ArticleViewResponseDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleListViewResponseDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleViewResponseDto;
 import com.kosa.springbootdeveloper.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

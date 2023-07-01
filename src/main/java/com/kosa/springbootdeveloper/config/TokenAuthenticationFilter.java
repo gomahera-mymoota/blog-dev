@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
@@ -35,9 +36,18 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String getAccessToken(String authorizationHeader) {
-        if (authorizationHeader != null && authorizationHeader.startsWith(TOKEN_PREFIX)) {
-            return authorizationHeader.substring(TOKEN_PREFIX.length());
+//        if (authorizationHeader != null && authorizationHeader.startsWith(TOKEN_PREFIX)) {
+//            return authorizationHeader.substring(TOKEN_PREFIX.length());
+//        }
+//        return null;
+
+        // TODO: 2023-07-01
+        // Optional로 리팩터링할 것
+        String authHeader = Optional.ofNullable(authorizationHeader).orElse("");
+        if (authHeader.startsWith(TOKEN_PREFIX)) {
+            return authHeader.substring(TOKEN_PREFIX.length());
         }
-        return null;
+
+        return authHeader;
     }
 }

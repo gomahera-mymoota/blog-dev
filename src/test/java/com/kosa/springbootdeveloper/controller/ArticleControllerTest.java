@@ -2,8 +2,8 @@ package com.kosa.springbootdeveloper.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosa.springbootdeveloper.domain.Article;
-import com.kosa.springbootdeveloper.dto.ArticleAddRequestDto;
-import com.kosa.springbootdeveloper.dto.ArticleUpdateRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleAddRequestDto;
+import com.kosa.springbootdeveloper.dto.article.ArticleUpdateRequestDto;
 import com.kosa.springbootdeveloper.repository.ArticleRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -1,6 +1,6 @@
 package com.kosa.springbootdeveloper.controller;
 
-import com.kosa.springbootdeveloper.dto.UserAddRequestDto;
+import com.kosa.springbootdeveloper.dto.user.UserAddRequestDto;
 import com.kosa.springbootdeveloper.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

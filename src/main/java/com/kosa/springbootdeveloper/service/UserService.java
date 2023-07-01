@@ -1,7 +1,7 @@
 package com.kosa.springbootdeveloper.service;
 
 import com.kosa.springbootdeveloper.domain.User;
-import com.kosa.springbootdeveloper.dto.UserAddRequestDto;
+import com.kosa.springbootdeveloper.dto.user.UserAddRequestDto;
 import com.kosa.springbootdeveloper.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,5 +21,10 @@ public class UserService {
                         .password(bCryptPasswordEncoder.encode(dto.getPassword()))
                         .build()
         ).getId();
+    }
+
+    public User findById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected user"));
     }
 }

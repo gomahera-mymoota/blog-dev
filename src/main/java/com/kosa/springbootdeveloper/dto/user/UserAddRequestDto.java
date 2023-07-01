@@ -1,4 +1,4 @@
-package com.kosa.springbootdeveloper.dto;
+package com.kosa.springbootdeveloper.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.kosa.springbootdeveloper.dto;
+package com.kosa.springbootdeveloper.dto.article;
 
 import com.kosa.springbootdeveloper.domain.Article;
 import lombok.Getter;
