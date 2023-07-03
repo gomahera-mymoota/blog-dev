@@ -41,13 +41,11 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 //        }
 //        return null;
 
-        // TODO: 2023-07-01
-        // Optional로 리팩터링할 것
+        // TODO: 2023-07-01: Optional로 리팩터링할 것
         String authHeader = Optional.ofNullable(authorizationHeader).orElse("");
         if (authHeader.startsWith(TOKEN_PREFIX)) {
             return authHeader.substring(TOKEN_PREFIX.length());
         }
-
         return authHeader;
     }
 }

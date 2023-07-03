@@ -14,17 +14,7 @@ spring:
   h2:
     console:
       enabled: true
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 539586758084-sh751eeo3bsnh139rh8mt7lnacudiste.apps.googleusercontent.com
-            client-secret: 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
-            scope:
-              - email
-              - profile
-
-jwt:
-  issuer: iceman4u@naver.com
-  secret_key: kosa-springboot
+  profiles:
+    include:
+      - jwt
+      - oauth
