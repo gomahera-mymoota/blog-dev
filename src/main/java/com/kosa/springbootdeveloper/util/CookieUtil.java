@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.util.SerializationUtils;
 
 import java.util.Base64;
+import java.util.Optional;
 
 public class CookieUtil {
 
@@ -17,12 +18,12 @@ public class CookieUtil {
     }
 
     public static void deleteCookie(HttpServletRequest request, HttpServletResponse response, String name) {
-        Cookie[] cookies = request.getCookies();
-        if (cookies == null) {
-            return;
-        }
+//        Cookie[] cookies = request.getCookies();
+//        if (cookies == null) {
+//            return;
+//        }
 
-//        Cookie[] cookies = Optional.ofNullable(request.getCookies()).orElse(new Cookie[0]);
+        Cookie[] cookies = Optional.ofNullable(request.getCookies()).orElse(new Cookie[0]);
 
         for (Cookie cookie: cookies) {
             if (name.equals(cookie.getName())) {
